@@ -1,0 +1,755 @@
+:root {
+    /* --- New Tech/AI Color Palette --- */
+    --primary-color: #00a8ff;    /* Vibrant Blue - Primary Action/Highlight */
+    --secondary-color: #0077a0; /* Darker Cyan/Blue - Gradients, Secondary Elements */
+    --accent-color: #4cc9f0;     /* Lighter Cyan - Subtle Highlights, Gradients */
+    --glow-color-primary: rgba(0, 168, 255, 0.4); /* Glow effect based on primary */
+    --glow-color-accent: rgba(76, 201, 240, 0.3); /* Glow effect based on accent */
+
+    /* --- Backgrounds & Text --- */
+    --bg-dark-primary: #1a1d24;    /* Very Dark Blue/Gray - Main dark background */
+    --bg-dark-secondary: #27293d; /* Dark Slate Blue/Gray - Secondary dark background */
+    --bg-light: #f8f9fa;           /* Standard Light Gray - Light mode background */
+    --text-color-dark-bg: #e0e0e0; /* Light Gray/White - Text on dark backgrounds */
+    --text-color-light-bg: #2a2a2a; /* Dark Gray - Text on light backgrounds */
+    --white: #ffffff;
+
+    /* --- Borders & Neutrals --- */
+    --border-color-dark: rgba(76, 201, 240, 0.2); /* Subtle Cyan border on dark */
+    --border-color-medium: #444;        /* Medium Gray border */
+    --metal-light: #e0e0e0;      /* Keep for light text */
+    --metal-medium: #a0a0a0;     /* Keep for neutral elements */
+    --metal-dark: #303030;       /* Keep for very dark accents */
+    --dark-accent: #363636;      /* Keep for dark hover effects */
+
+    /* --- Gradients (Updated) --- */
+    --gradient-start: var(--primary-color);
+    --gradient-end: var(--secondary-color);
+    --gradient-accent-start: var(--accent-color);
+    --gradient-accent-end: var(--primary-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    /* Default to dark theme text color */
+    color: var(--text-color-dark-bg);
+    /* Default to dark theme background */
+    background-color: var(--bg-dark-primary);
+    overflow-x: hidden;
+}
+
+h1, h2, .section-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+}
+
+/* Modern Navigation */
+.navbar {
+    /* Use primary dark bg with transparency */
+    background-color: rgba(26, 29, 36, 0.9); /* rgba version of --bg-dark-primary */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Darker shadow */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.4s ease;
+    border-bottom: 1px solid rgba(0, 168, 255, 0.1); /* Subtle blue bottom border */
+}
+
+.navbar.scrolled {
+    padding: 0.5rem 0;
+    background-color: rgba(26, 29, 36, 0.98); /* Slightly less transparent on scroll */
+    box-shadow: 0 5px 20px var(--glow-color-primary); /* Blue glow shadow on scroll */
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color); /* Use primary blue */
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 0 8px var(--glow-color-primary); /* Blue text shadow */
+    display: flex;
+    align-items: center;
+}
+
+.logo:after { /* Reduced subtlety */
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px; /* Thinner */
+    bottom: 5px;
+    left: 0;
+    background-color: rgba(0, 168, 255, 0.2); /* Muted blue */
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color-dark-bg); /* Light text */
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+    font-size: 1.05rem;
+}
+
+.nav-links a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    /* Blue gradient for underline */
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color); /* Highlight with primary blue */
+}
+
+.nav-links a:hover:after {
+    width: 100%;
+}
+
+/* Mobile navigation */
+.mobile-nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--primary-color); /* Use primary blue */
+    z-index: 1001;
+}
+
+/* Hero Section */
+.hero {
+    padding: 8rem 2rem 6rem;
+    /* Dark blue/gray gradient background */
+    background: linear-gradient(135deg, var(--bg-dark-primary) 0%, var(--bg-dark-secondary) 100%);
+    position: relative;
+    overflow: hidden;
+    color: var(--text-color-dark-bg); /* Ensure text is light */
+}
+
+/* Subtle background glow effects */
+.hero:before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    /* Use blue radial glow */
+    background: radial-gradient(circle, var(--glow-color-primary) 0%, transparent 70%);
+    opacity: 0.2; /* More subtle */
+    top: -250px;
+    right: -100px;
+    z-index: 0;
+}
+
+.hero:after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    /* Use accent blue radial glow */
+    background: radial-gradient(circle, var(--glow-color-accent) 0%, transparent 70%);
+    opacity: 0.15; /* More subtle */
+    bottom: -150px;
+    left: -100px;
+    z-index: 0;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Keep grid layout, but adjust for no image */
+    display: flex; /* Change to flex for single content block */
+    justify-content: center; /* Center the content */
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    text-align: center; /* Center align text in hero */
+}
+
+/* --- Removed .profile-image related styles as per previous step --- */
+/* If you add an image back, update its border/shadow to use blue vars */
+/* .profile-image {
+    border: 3px solid var(--border-color-dark);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--glow-color-primary);
+}
+.profile-image:hover {
+     box-shadow: 0 20px 40px var(--glow-color-primary), 0 0 0 2px var(--glow-color-accent);
+} */
+
+.hero-content {
+    animation: fadeIn 1s ease-out;
+    max-width: 800px; /* Limit width for better readability */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    /* Blue gradient for text */
+    background: linear-gradient(to right, var(--accent-color), var(--primary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Slightly softer shadow */
+}
+
+.subtitle {
+    color: var(--metal-light);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center; /* Center subtitle icons/text */
+    gap: 0.8rem; /* Slightly more space */
+}
+
+.subtitle i {
+    color: var(--primary-color); /* Use primary blue */
+    margin-right: 5px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--text-color-dark-bg); /* Ensure light text */
+}
+
+/* Skills & Section Styling */
+.section-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Use consistent dark backgrounds for sections */
+.skills, .projects, .contact {
+    padding: 6rem 2rem;
+    background-color: var(--bg-dark-primary); /* Main dark bg */
+    position: relative;
+    color: var(--text-color-dark-bg); /* Ensure light text */
+}
+
+.projects {
+    background-color: var(--bg-dark-secondary); /* Alternate dark bg */
+}
+
+/* Tech Pattern Background for Skills Section */
+.skills:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    /* Adjusted pattern with tech blues/grays */
+    background-image:
+        linear-gradient(30deg, var(--bg-dark-secondary) 12%, transparent 12.5%, transparent 87%, var(--bg-dark-secondary) 87.5%, var(--bg-dark-secondary)),
+        linear-gradient(150deg, var(--bg-dark-secondary) 12%, transparent 12.5%, transparent 87%, var(--bg-dark-secondary) 87.5%, var(--bg-dark-secondary)),
+        linear-gradient(30deg, var(--bg-dark-secondary) 12%, transparent 12.5%, transparent 87%, var(--bg-dark-secondary) 87.5%, var(--bg-dark-secondary)),
+        linear-gradient(150deg, var(--bg-dark-secondary) 12%, transparent 12.5%, transparent 87%, var(--bg-dark-secondary) 87.5%, var(--bg-dark-secondary)),
+        linear-gradient(60deg, rgba(0, 168, 255, 0.05) 25%, transparent 25.5%, transparent 75%, rgba(0, 168, 255, 0.05) 75%, rgba(0, 168, 255, 0.05)),
+        linear-gradient(60deg, rgba(0, 168, 255, 0.05) 25%, transparent 25.5%, transparent 75%, rgba(0, 168, 255, 0.05) 75%, rgba(0, 168, 255, 0.05));
+    background-size: 40px 70px;
+    background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+    opacity: 0.1; /* Subtle pattern */
+}
+
+.skills-container { /* Applies to all sections using this class */
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.skill-card {
+    /* Darker card background */
+    background: linear-gradient(145deg, var(--bg-dark-secondary), #222533); /* Slightly lighter than primary dark */
+    padding: 2.5rem;
+    border-radius: 0.5rem; /* Keep modest rounding */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.05); /* Adjust shadow */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Use subtle blue border */
+    border: 1px solid var(--border-color-dark);
+    position: relative;
+    overflow: hidden;
+    color: var(--text-color-dark-bg); /* Ensure text is light */
+}
+
+.skill-card:before { /* Subtle gradient overlay */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Very subtle blue gradient */
+    background: linear-gradient(135deg, rgba(0, 168, 255, 0.05) 0%, transparent 50%);
+    opacity: 0.5;
+    z-index: 0; /* Place behind content */
+}
+
+.skill-card > * { /* Ensure content is above ::before overlay */
+    position: relative;
+    z-index: 1;
+}
+
+
+.skill-card:hover {
+    transform: translateY(-10px) scale(1.02); /* Add slight scale */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    /* Brighter blue border on hover */
+    border-color: rgba(0, 168, 255, 0.5);
+}
+
+.skill-card h3 {
+    color: var(--primary-color); /* Use primary blue */
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    font-size: 1.3rem;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.skill-card h3:after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    bottom: -6px;
+    left: 0;
+    /* Blue gradient for underline */
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+/* Centralize underline for centered cards (like in Contact section) */
+.contact .skill-card h3:after,
+.skill-card.text-center h3:after { /* Add text-center class if needed elsewhere */
+     left: 50%;
+     transform: translateX(-50%);
+}
+
+/* Keep icon styles, update colors */
+.card-header {
+    margin-bottom: 15px;
+    /* Use dark bg with subtle blue */
+    background: rgba(0, 168, 255, 0.05);
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: inline-flex; /* Changed to inline-flex */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border-color-dark); /* Subtle blue border */
+}
+
+.card-header i {
+    font-size: 1.5rem;
+    color: var(--primary-color); /* Use primary blue */
+    margin: 0;
+    text-shadow: 0 0 5px var(--glow-color-primary); /* Add subtle glow */
+}
+
+/* Section Title Styles */
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color); /* Use primary blue */
+    position: relative;
+    display: inline-block; /* Allows centering trick */
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow: 0 0 15px var(--glow-color-primary); /* Blue glow */
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* Blue gradient underline */
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: var(--text-color-dark-bg); /* Light text */
+    font-size: 1.1rem;
+    opacity: 0.8; /* Slightly less prominent */
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 0.9rem 1.8rem; /* Slightly adjusted padding */
+    /* Blue gradient background */
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 0.3rem; /* Keep modest rounding */
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Darker shadow */
+    border: none;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.btn:before { /* Hover effect overlay */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    /* Darker gradient for hover */
+    background: linear-gradient(to right, var(--secondary-color), var(--bg-dark-secondary));
+    transition: all 0.5s ease;
+    z-index: -1;
+    border-radius: 0.3rem;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    /* Add blue outline glow on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--glow-color-primary);
+}
+
+.btn:hover:before {
+    width: 100%;
+}
+
+/* Background effect for Projects (subtle) */
+.projects:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Use very subtle blue radial gradients */
+    background: radial-gradient(circle at 10% 20%, rgba(0, 168, 255, 0.02) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(76, 201, 240, 0.02) 0%, transparent 20%);
+    z-index: 0;
+}
+
+.contact .skill-card {
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    /* Dark gradient background */
+    background: linear-gradient(to right, var(--bg-dark-primary), var(--bg-dark-secondary));
+    color: var(--text-color-dark-bg); /* Light text */
+    text-align: center;
+    padding: 3rem 2rem;
+    position: relative;
+    overflow: hidden;
+    /* Subtle blue top border */
+    border-top: 1px solid var(--border-color-dark);
+    margin-top: 40px; /* Add margin if needed */
+
+}
+
+footer:before { /* Subtle background glow */
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    /* Use subtle blue radial glow */
+    background: radial-gradient(circle, var(--glow-color-primary) 0%, transparent 70%);
+    opacity: 0.1; /* Very subtle */
+    top: -100px;
+    right: 10%;
+    border-radius: 50%;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+}
+
+.footer-content p {
+    opacity: 0.7; /* Make copyright text slightly less prominent */
+}
+
+.footer-icons {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.footer-icons a {
+    color: var(--text-color-dark-bg); /* Light text */
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    opacity: 0.7;
+}
+
+.footer-icons a:hover {
+    color: var(--primary-color); /* Highlight with primary blue */
+    transform: translateY(-5px) scale(1.2);
+    text-shadow: 0 0 10px var(--glow-color-primary); /* Add blue glow */
+    opacity: 1;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smoother ease */
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Styles (Keep existing structure, colors update automatically) */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-container {
+        /* Revert to single column if needed, adjust text align */
+         /* grid-template-columns: 1fr; */
+         /* text-align: center; */
+         gap: 2rem;
+    }
+
+    /* Adjust mobile nav background */
+    .nav-links {
+        /* background-color: rgba(26, 29, 36, 0.98); */ /* Dark bg for mobile menu */
+         /* Keep existing styles, color vars will update */
+         display: none;
+         position: fixed;
+         top: 0;
+         right: -100%; /* Start off-screen */
+         height: 100vh;
+         width: 80%; /* Don't take full width */
+         max-width: 300px; /* Max width */
+         background-color: var(--bg-dark-secondary); /* Use secondary dark */
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         gap: 2rem;
+         z-index: 1000;
+         transition: right 0.5s ease; /* Transition the 'right' property */
+         box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    }
+
+    .nav-links.active {
+        display: flex;
+        right: 0; /* Slide in from the right */
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+        position: relative; /* Ensure it's above overlay */
+        z-index: 1001;
+    }
+
+    .mobile-nav-toggle.active i::before {
+        content: "\f00d"; /* Change to times icon */
+    }
+
+    .skill-card {
+        text-align: center; /* Ensure cards are centered on mobile */
+    }
+     .skill-card h3:after { /* Ensure underline is centered */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+     .btn {
+         padding: 0.8rem 1.5rem; /* Smaller button padding */
+     }
+}
+
+/* --- Helper Classes Updated --- */
+.tech-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color); /* Use primary blue */
+    border-radius: 50%;
+    margin-left: 5px;
+    position: relative;
+    box-shadow: 0 0 10px var(--glow-color-primary); /* Blue glow */
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse { /* Use blue glow for pulse */
+    0% {
+        box-shadow: 0 0 0 0 var(--glow-color-primary);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 168, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 168, 255, 0);
+    }
+}
+
+/* Remove .tech-circle or update if image container is used */
+.profile-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* Styles for tech circle if image is present */
+    /* .tech-circle {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border: 2px dashed var(--primary-color);
+        border-radius: 50%;
+        top: -30px;
+        right: 0;
+        opacity: 0.7;
+        animation: rotate 20s linear infinite;
+    } */
+}
+
+/* No tech-circle needed without image */
+.tech-circle { display: none; }
+
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.tech-badge {
+    font-size: 1rem;
+    /* Use subtle blue background and border */
+    background-color: rgba(0, 168, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color-dark);
+    color: var(--primary-color); /* Use primary blue for text */
+    margin-left: 10px;
+    vertical-align: middle;
+    position: relative;
+    top: -5px;
+}
+
+.tech-bracket {
+    font-family: monospace;
+    color: var(--primary-color); /* Use primary blue */
+    font-size: 0.8em;
+    opacity: 0.7; /* Slightly more visible */
+}
+
+/* Remove .tech-decoration or update if desired */
+.tech-decoration {
+   /* display: none; */ /* Hide if not wanted */
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    /* Use primary color for decoration */
+    background: linear-gradient(45deg, transparent 49%, var(--primary-color) 49%, var(--primary-color) 51%, transparent 51%);
+    opacity: 0.05; /* Very subtle */
+    top: 50px;
+    left: 50px;
+    z-index: 0;
+}
+
+.tech-decoration.right {
+    left: auto;
+    right: 50px;
+    transform: rotate(90deg);
+}
+
+/* Ensure text-align center for cards where needed */
+.contact .skill-card {
+    text-align: center;
+}

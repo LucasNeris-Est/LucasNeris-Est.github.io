@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Lucas Gabriel — Estatístico & Analista de Dados</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lucas Gabriel - Estatístico, Analista de Dados e Cientista de Dados. Soluções em BI, engenharia de dados e agentes de IA.">
+    <meta name="description" content="Lucas Gabriel — Estatístico, Analista de Dados e Cientista de Dados. Soluções em BI, engenharia de dados e agentes de IA.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="icon" type="image/png" href="static/images/favicon-32x32.png">
@@ -15,7 +15,7 @@
 <body>
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Lucas Gabriel</a>
+            <a href="#inicio" class="logo">LG<span>.</span></a>
             <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Abrir menu">
                 <i class="fas fa-bars"></i>
             </button>
@@ -24,51 +24,68 @@
                 <a href="#experiencia">Experiência</a>
                 <a href="#habilidades">Competências</a>
                 <a href="#formacao">Formação</a>
-                <a href="#contato">Contato</a>
+                <a href="#contato" class="nav-cta">Contato</a>
             </div>
         </div>
     </nav>
 
     <header class="hero" id="inicio">
-        <div class="hero-backdrop" aria-hidden="true"></div>
+        <div class="hero-bg" aria-hidden="true"></div>
         <div class="hero-container">
             <div class="hero-copy">
-                <p class="hero-brand">Lucas Gabriel</p>
-                <h1>Estatística, dados e inteligência artificial a serviço de decisões melhores.</h1>
+                <p class="hero-eyebrow">Brasília · Distrito Federal</p>
+                <h1 class="hero-title">
+                    <span class="hero-title-line">Transformando</span>
+                    <span class="hero-title-line">dados em <em>ação</em></span>
+                </h1>
                 <p class="hero-lead">
-                    Estatístico · Analista de dados · Cientista de dados — Brasília, DF
+                    Estatístico · Analista de dados · Cientista de dados — unindo estatística, engenharia de dados e agentes de IA para decisões melhores.
                 </p>
                 <div class="hero-actions">
-                    <a href="#contato" class="btn btn-primary">Entre em contato</a>
-                    <a href="#experiencia" class="btn btn-ghost">Ver experiência</a>
+                    <a href="#experiencia" class="btn btn-primary">Ver trajetória</a>
+                    <a href="#contato" class="btn btn-outline">Fale comigo</a>
                 </div>
             </div>
             <div class="hero-portrait">
-                <img src="static/images/lucas.jpg" alt="Lucas Gabriel" class="profile-image" width="420" height="520">
+                <div class="portrait-frame">
+                    <img src="static/images/lucas.jpg" alt="Lucas Gabriel" class="profile-image" width="420" height="520">
+                </div>
+                <div class="portrait-caption">
+                    <strong>Lucas Gabriel</strong>
+                    <span>Estatístico &amp; Analista de Dados</span>
+                </div>
             </div>
         </div>
     </header>
 
     <section class="about section" id="sobre">
         <div class="section-inner">
-            <p class="section-label">Sobre</p>
-            <h2 class="section-title">Unindo matemática, dados e agentes inteligentes</h2>
+            <div class="section-heading">
+                <h2 class="split-title">
+                    <span>Quem</span>
+                    <span class="accent">sou?</span>
+                </h2>
+            </div>
             <div class="about-grid">
-                <p class="about-text">
-                    Sou Estatístico formado pela Universidade Federal de Goiás (UFG). Minha trajetória acadêmica e profissional une matemática e tecnologia, com duas pós-graduações: Banco de Dados com Big Data (UFG) e Sistemas e Agentes Inteligentes.
+                <p class="about-lead">
+                    Sou Estatístico formado pela Universidade Federal de Goiás (UFG). Minha trajetória une matemática e tecnologia, com pós-graduações em Banco de Dados com Big Data e Sistemas e Agentes Inteligentes.
                 </p>
                 <p class="about-text">
-                    Integro o background estatístico às especializações em Big Data e IA para desenvolver soluções inteligentes — da modelagem de dados à construção de agentes inteligentes e plataformas de suporte à decisão.
+                    Integro o background estatístico às especializações em Big Data e IA para desenvolver soluções inteligentes — da modelagem de dados à construção de agentes e plataformas de suporte à decisão.
                 </p>
             </div>
         </div>
     </section>
 
-    <section class="experience section" id="experiencia">
+    <section class="experience section section-dark" id="experiencia">
         <div class="section-inner">
-            <p class="section-label">Experiência</p>
-            <h2 class="section-title">Trajetória profissional</h2>
-            <p class="section-subtitle">Atuação em saúde, indústria, pesquisa e consultoria estatística</p>
+            <div class="section-heading">
+                <h2 class="split-title">
+                    <span>Minha</span>
+                    <span class="accent">trajetória</span>
+                </h2>
+                <p class="section-subtitle">Atuação em saúde, indústria, pesquisa e consultoria estatística</p>
+            </div>
 
             <ol class="timeline">
                 <li class="timeline-item fade-in">
@@ -148,24 +165,32 @@
 
     <section class="skills section" id="habilidades">
         <div class="section-inner">
-            <p class="section-label">Competências</p>
-            <h2 class="section-title">Onde atuo com profundidade</h2>
-            <p class="section-subtitle">Competências principais alinhadas à prática diária em dados e IA</p>
+            <div class="section-heading">
+                <h2 class="split-title">
+                    <span>Minhas</span>
+                    <span class="accent">soluções</span>
+                </h2>
+                <p class="section-subtitle">Competências principais alinhadas à prática diária em dados e IA</p>
+            </div>
 
             <div class="skills-grid">
-                <article class="skill-block fade-in">
-                    <h3>Inteligência de Negócios (BI)</h3>
+                <article class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h3>Inteligência de Negócios</h3>
                     <p>Indicadores analíticos, dashboards e ferramentas de suporte à decisão para múltiplos setores.</p>
                 </article>
-                <article class="skill-block fade-in">
+                <article class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
                     <h3>Engenharia de Dados</h3>
                     <p>Pipelines ETL, automações em Python, SQL e PostgreSQL para integração e processamento de dados.</p>
                 </article>
-                <article class="skill-block fade-in">
+                <article class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-robot"></i></div>
                     <h3>LLMOps &amp; Agentes de IA</h3>
                     <p>Operações com modelos de linguagem e agentes inteligentes para otimizar processos e consultas especializadas.</p>
                 </article>
-                <article class="skill-block fade-in">
+                <article class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-square-root-alt"></i></div>
                     <h3>Análise Estatística</h3>
                     <p>Modelagem estatística, simulações, estudos de bioequivalência e interpretação de resultados.</p>
                 </article>
@@ -186,8 +211,12 @@
 
     <section class="education section" id="formacao">
         <div class="section-inner">
-            <p class="section-label">Formação</p>
-            <h2 class="section-title">Educação e certificações</h2>
+            <div class="section-heading">
+                <h2 class="split-title">
+                    <span>Formação</span>
+                    <span class="accent">&amp; certificação</span>
+                </h2>
+            </div>
 
             <div class="edu-layout">
                 <div class="edu-column">
@@ -230,11 +259,15 @@
         </div>
     </section>
 
-    <section class="contact section" id="contato">
+    <section class="contact section section-dark" id="contato">
         <div class="section-inner contact-inner">
-            <p class="section-label">Contato</p>
-            <h2 class="section-title">Vamos conversar</h2>
-            <p class="section-subtitle">Aberto a desafios em dados, IA e modelagem estatística</p>
+            <div class="section-heading">
+                <h2 class="split-title">
+                    <span>Vamos</span>
+                    <span class="accent">conversar?</span>
+                </h2>
+                <p class="section-subtitle">Aberto a desafios em dados, IA e modelagem estatística</p>
+            </div>
 
             <div class="contact-links">
                 <a href="mailto:lucasgsn2014@gmail.com" class="contact-link fade-in">
